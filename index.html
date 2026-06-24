@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои приложения ❄️</title>
+    <style>
+        /* 🌨️ Зимний стиль с нежно-голубыми цветами */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(145deg, #e8f4f8 0%, #d4e9f5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            padding: 50px 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(180, 210, 230, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ❄️ Снежинки-иконки */
+        .snow-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c5f7a;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #5a8da6;
+            margin-bottom: 40px;
+            border-bottom: 2px solid rgba(180, 215, 235, 0.5);
+            padding-bottom: 20px;
+        }
+
+        .apps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            padding: 30px 25px 25px;
+            width: 220px;
+            box-shadow: 0 8px 25px rgba(160, 195, 215, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(140, 185, 210, 0.3);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .app-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .app-card h2 {
+            color: #2c5f7a;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .app-card p {
+            color: #6a9ab3;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #7bb8d9, #5a9fc7);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(90, 159, 199, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(90, 159, 199, 0.5);
+            background: linear-gradient(135deg, #8cc5e3, #6aafd1);
+        }
+
+        .download-btn:active {
+            transform: scale(0.95);
+        }
+
+        .info-text {
+            color: #5a8da6;
+            font-size: 0.95rem;
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(180, 215, 235, 0.4);
+        }
+
+        .info-text a {
+            color: #3d7a97;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ❄️ Анимированные снежинки на фоне */
+        .snowflake {
+            position: fixed;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            top: -20px;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Адаптация под телефон */
+        @media (max-width: 550px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .app-card {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ❄️ Фоновые снежинки (создаются через JavaScript) -->
+    <div id="snowflakes-container"></div>
+
+    <div class="container">
+        <span class="snow-icon">❄️</span>
+        <h1>Зимние приложения</h1>
+        <p class="subtitle">Скачивай для телефона или компьютера</p>
+
+        <div class="apps-grid">
+            <!-- 📱 Мобильное приложение -->
+            <div class="app-card">
+                <span class="app-icon">📱</span>
+                <h2>Мобильное</h2>
+                <p>Android / iOS<br>Версия 2.1.0</p>
+                <a href="#" class="download-btn" id="mobile-btn">Скачать</a>
+                <!-- В будущем замени # на ссылку на файл .apk или .ipa -->
+            </div>
+
+            <!-- 💻 Десктопное приложение -->
+            <div class="app-card">
+                <span class="app-icon">💻</span>
+                <h2>Десктопное</h2>
+                <p>Windows / macOS / Linux<br>Версия 1.5.0</p>
+                <a href="#" class="download-btn" id="desktop-btn">Скачать</a>
+                <!-- В будущем замени # на ссылку на .exe/.dmg/.AppImage -->
+            </div>
+        </div>
+
+        <p class="info-text">
+            🧊 Все приложения бесплатны.<br>
+            По вопросам пиши: <a href="mailto:твоя-почта@example.com">твоя-почта@example.com</a>
+        </p>
+    </div>
+
+    <script>
+        // ❄️ Создаём падающие снежинки
+        function createSnowflakes() {
+            const container = document.getElementById('snowflakes-container');
+            const symbols = ['❄', '❅', '❆', '✦'];
+            
+            for (let i = 0; i < 35; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                flake.style.left = Math.random() * 100 + '%';
+                flake.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                flake.style.opacity = Math.random() * 0.5 + 0.2;
+                flake.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                flake.style.animationDelay = (Math.random() * 10) + 's';
+                container.appendChild(flake);
+            }
+        }
+
+        createSnowflakes();
+
+        // 📥 Временное сообщение при нажатии на кнопки (пока нет файлов)
+        document.getElementById('mobile-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('📱 Ссылка на скачивание появится здесь, когда вы загрузите файл .apk или .ipa в репозиторий!');
+        });
+
+        document.getElementById('desktop-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('💻 Ссылка на скачивание появится здесь, когда вы загрузите файл .exe/.dmg/.AppImage в репозиторий!');
+        });
+    </script>
+
+</body>
+</html>
