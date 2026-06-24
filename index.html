@@ -204,7 +204,7 @@
                 <span class="app-icon">📱</span>
                 <h2>Мобильное</h2>
                 <p>Android / iOS<br>Версия 2.1.0</p>
-                <a href="https://github.com/anyuta2026/my-app-site/raw/main/app-debug.apk" class="download-btn" id="mobile-btn">Скачать</a>
+                <a href="https://github.com/anyuta2026/my-app-site/raw/main/app-debug.apk" class="download-btn" id="mobile-btn">Скачать .apk</a>
                 <!-- В будущем замени # на ссылку на файл .apk или .ipa -->
             </div>
 
@@ -213,7 +213,7 @@
                 <span class="app-icon">💻</span>
                 <h2>Десктопное</h2>
                 <p>Windows / macOS / Linux<br>Версия 1.5.0</p>
-                <a href="https://github.com/anyuta2026/my-app-site/raw/main/app-windows.zip" class="download-btn" id="desktop-btn">Скачать</a>
+                <a href="https://github.com/anyuta2026/my-app-site/raw/main/app-windows.zip" class="download-btn" id="desktop-btn">Скачать .zip</a>
                 <!-- В будущем замени # на ссылку на .exe/.dmg/.AppImage -->
             </div>
         </div>
@@ -224,38 +224,26 @@
         </p>
     </div>
 
-    <script>
-        // ❄️ Создаём падающие снежинки
-        function createSnowflakes() {
-            const container = document.getElementById('snowflakes-container');
-            const symbols = ['❄', '❅', '❆', '✦'];
-            
-            for (let i = 0; i < 35; i++) {
-                const flake = document.createElement('div');
-                flake.className = 'snowflake';
-                flake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                flake.style.left = Math.random() * 100 + '%';
-                flake.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                flake.style.opacity = Math.random() * 0.5 + 0.2;
-                flake.style.animationDuration = (Math.random() * 15 + 10) + 's';
-                flake.style.animationDelay = (Math.random() * 10) + 's';
-                container.appendChild(flake);
-            }
+   <script>
+    // ❄️ Создаём красивые падающие снежинки
+    function createSnowflakes() {
+        const container = document.getElementById('snowflakes-container');
+        const symbols = ['❄', '❅', '❆', '✦'];
+        
+        for (let i = 0; i < 35; i++) {
+            const flake = document.createElement('div');
+            flake.className = 'snowflake';
+            flake.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            flake.style.left = Math.random() * 100 + '%';
+            flake.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            flake.style.opacity = Math.random() * 0.5 + 0.2;
+            flake.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            flake.style.animationDelay = (Math.random() * 10) + 's';
+            container.appendChild(flake);
         }
+    }
 
-        createSnowflakes();
-
-        // 📥 Временное сообщение при нажатии на кнопки (пока нет файлов)
-        document.getElementById('mobile-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('📱 Ссылка на скачивание появится здесь, когда вы загрузите файл .apk или .ipa в репозиторий!');
-        });
-
-        document.getElementById('desktop-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('💻 Ссылка на скачивание появится здесь, когда вы загрузите файл .zip/.dmg/.AppImage в репозиторий!');
-        });
-    </script>
-
+    createSnowflakes();
+</script>
 </body>
 </html>
